@@ -53,7 +53,7 @@ const config = {
         loaders: ['babel-loader', 'eslint-loader']},
       {
         test: /\.html$/,
-        loaders: ['html-loader']
+        loaders: ['html-loader'],
         query: { minimize: true }
       },
       {
