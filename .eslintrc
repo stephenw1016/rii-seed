@@ -217,17 +217,31 @@
   },
 
 
+  /* ECMAScript 6 */
+  "arrow-body-style": [2, "as-needed", { "requireReturnForObjectLiteral": true }],
+  "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+  "arrow-spacing": 2,
+  "no-class-assign": 2,
+  "no-confusing-arrow": 2,
+  "no-const-assign": 2,
+  "no-dupe-class-members": 2,
+  "no-duplicate-imports": 2,
+  "no-this-before-super": 2,
+  "no-var": 2,
+  "no-useless-rename": 2,
+  "prefer-spread": 2,
+  "rest-spread-spacing": 2,
+
+
   "globals": {
     "Blob": false,
     "ngInject": false,
     "window": false,
-    "moment": false,
     "angular": false,
     "require": false,
     "console": false,
     "module": false,
     "document": false,
-    "coordutils": false,
     "describe": false,
     "it": false,
     "xit": false,

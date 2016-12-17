@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
 const isTest = ENV === 'test' || ENV === 'test-watch';
-const isProd = ENV === 'build';
+const isProd = ENV === 'build' || ENV === 'start';
 const filename = isProd ? '[name].[hash].js' : '[name].bundle.js';
 const PATHS = {
   app: path.join(__dirname, 'app'),
@@ -53,11 +53,11 @@ const config = {
         loaders: ['babel-loader', 'eslint-loader']},
       {
         test: /\.html$/,
-        loaders: ['html-loader'],
+        loader: 'html-loader',
         query: { minimize: true }
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+        test: /\.(png|jpg|jpeg|svg)$/,
         loader: 'file-loader?name=[name].[ext]&publicPath=app/assets/[ext]/&outputPath=dist/[ext]/'
       }
     ]
@@ -88,13 +88,7 @@ if (!isTest) {
 }
 
 if (isProd) {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      minimize: true,
-      sourceMap: true
-    })
-  );
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({ mangle: false, minimize: true, sourceMap: true }));
 }
 
 module.exports = config;

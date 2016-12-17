@@ -5,7 +5,7 @@ module.exports = function karmaConfig (config) {
 
     frameworks: ['jasmine'],
 
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress'],
 
     // Grab all files in the app folder that contain .spec.
     files: ['app/tests.webpack.js'],
